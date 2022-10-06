@@ -10,10 +10,13 @@ public class App {
             return false;
         }
         word = word.toLowerCase();
-        List<Char> chars = Arrays.asList(setOfChars.split());
+        List<Char> listOfChars = new ArrayList<>();
+        for (var n = 0; n < setOfChars.length(); n++) {
+            listOfChars.add(setOfChars.charAt(n));
+        }
         for (var i = 0; i < word.length(); i++) {
-            if (chars.contains(word.charAt(i))) {
-                chars.remove(word.charAt(i));
+            if (listOfChars.contains(word.charAt(i))) {
+                listOfChars.remove(word.charAt(i));
             } else {
                 return false;
             }
