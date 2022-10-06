@@ -9,19 +9,19 @@ public class App {
         if (setOfChars.length() < word.length()) {
             return false;
         }
+        int check = 0;
         word = word.toLowerCase();
-        ArrayList<String> listOfChars = new ArrayList<>();
-        for (var n = 0; n < setOfChars.length(); n++) {
-            listOfChars.add(setOfChars.charAt(n));
-        }
+        char[] charArray = setOfChars.toCharArray();
         for (var i = 0; i < word.length(); i++) {
-            if (listOfChars.contains(word.charAt(i))) {
-                listOfChars.remove(word.charAt(i));
-            } else {
-                return false;
+            for (var n = 0; n < setOfChars.length(); n++) {
+                if (charArray[n] == word.charAt(i)) {
+                    charArray[n] = '-';
+                    check++;
+                    break;
+                }
             }
         }
-        return true;
+        return check == word.length();
     }
 }
 //END
