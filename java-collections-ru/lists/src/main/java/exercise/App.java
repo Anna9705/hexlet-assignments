@@ -10,7 +10,7 @@ public class App {
             return false;
         }
         word = word.toLowerCase();
-        ArrayList<Char> listOfChars = new ArrayList<>();
+        ArrayList<String> listOfChars = new ArrayList<>();
         for (var n = 0; n < setOfChars.length(); n++) {
             listOfChars.add(setOfChars.charAt(n));
         }
