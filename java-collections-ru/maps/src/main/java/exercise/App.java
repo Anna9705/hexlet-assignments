@@ -23,10 +23,11 @@ public class App {
     }
 
     public static String toString(Map<String, Integer> wordsMap) {
-       if (wordsMap.isEmpty()) {
-           return "{}";
-       }
-       StringBuilder result = new StringBuilder();
+
+        if (wordsMap.isEmpty()) {
+            return "{}";
+        }
+        StringBuilder result = new StringBuilder();
         result.append("{\n");
         for (Map.Entry<String, Integer> word : wordsMap.entrySet()) {
             result.append("  ").append(word.getKey()).append(": ").append(word.getValue()).append("\n");
