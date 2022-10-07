@@ -5,14 +5,6 @@ import java.util.Map;
 
 // BEGIN
 public class App {
-
-   public static void main(String[] args) {
-       String sentence1 = "word text cat apple word map apple word";
-       System.out.println(App.getWordCount(sentence1));
-       System.out.println(toString(App.getWordCount(sentence1)));
-       System.out.println(toString(App.getWordCount(sentence1)).length());
-   }
-
     public static Map<String, Integer> getWordCount(String sentence) {
         if (sentence.equals("")) {
             return new HashMap<>();
