@@ -10,22 +10,15 @@ import java.util.stream.Collectors;
 // BEGIN
 class Sorter {
     public static List<String> takeOldestMans(List<Map<String, String>> users) {
-        List<String> sortedDates = users.stream()
+        return users.stream()
                 .filter(user -> user.get("gender").equals("male"))
-                .map(date -> date.get("birthday"))
-                .sorted(Comparator.naturalOrder())
+                .sorted((user1, user2) -> {
+                    LocalDate date1 = LocalDate.parse(user1.get("birthday"));
+                    LocalDate date2 = LocalDate.parse(user2.get("birthday"));
+                    return date1.compareTo(date2);
+                })
+                .map(user -> user.get("name"))
                 .collect(Collectors.toList());
-        String[] result = new String[sortedDates.size()];
-        int i = 0;
-        for (String date : sortedDates) {
-            for(Map<String, String> user : users) {
-                if (user.get("birthday").equals(date) && user.get("gender").equals("male")) {
-                    result[i] = user.get("name");
-                    i++;
-                }
-            }
-        }
-        return Arrays.stream(result).toList();
     }
 }
 // END
